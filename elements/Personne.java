@@ -6,17 +6,19 @@ public abstract class Personne {
 	private String prenom;
 	private String ddn;
 	private String adresse;
+	private Compte compte;
 	
 	public Personne() {
 		
 	}
 	
-	public Personne(int id, String prenom, String nom, String ddn, String adresse) {
+	public Personne(int id, String prenom, String nom, String ddn, String adresse, Compte compte) {
 		this.id=id;
 		this.prenom=prenom;
 		this.nom=nom;
 		this.ddn=ddn;
 		this.adresse=adresse;
+		this.compte=compte;
 	}
 
 	public int getId() {
