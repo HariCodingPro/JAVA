@@ -2,7 +2,7 @@ package elements;
 
 
 public class Dechet {
-    private String typePoubelle;
+    private String typePoubelle; //Verre, carton etc.
     private double poids;
     private String nomDechet;
 

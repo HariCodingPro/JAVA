@@ -3,18 +3,14 @@ package elements;
 import java.util.ArrayList;
 
 public class Menage extends Personne{
-	
-	private ArrayList<Depot> mesDepots=new ArrayList<Depot>();
 
-	
-	public Menage() {
-		super();
-	}
+	/*Le ménage a accès à la liste de ses dépôts*/
+	private ArrayList<Depot> mesDepots=new ArrayList<Depot>();
 
 
 	public Menage(int id, String prenom, String nom, String ddn, String adresse, Compte compte) {
 		super(id, prenom, nom, ddn, adresse, compte);
-		// TODO Auto-generated constructor stub
+
 	}
 
 	public void ajouterDepot(Depot d) {
@@ -31,9 +27,12 @@ public class Menage extends Personne{
 		}
 	}
 	
-	public void affDepot() {
-		for(Depot d:mesDepots) {
-			System.out.println(d);
-		}
-	}
+	public void afficherDepots() {
+        for(Depot d:mesDepots) {
+        	System.out.println("==================================");
+        	System.out.println("Date depot : "+d.getDateDepot()+"\nHeure : "+d.getHeureDepot()+"\nPoubelle : "+d.getPoubelle().getTypedechets());
+        	System.out.println("==================================");
+        }
+}
+
 }
