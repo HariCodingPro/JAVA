@@ -22,45 +22,40 @@ public class Depot {
     }
 
     /*Ajouter un dechet a la map des dechets du depot*/
-    public void ajouter(Dechet d, int qte) {
+    public void ajouter_dechet(Dechet d, int qte) {
+    
     	listedechets.put(d,qte);
+    	
+    	if(d.getTypePoubelle()==poubelle.getTypedechets()) {
+    		points+=5;
+    	}
+    	
+    	else {
+    		points-=1;
+    	}
+    	
+    	//on modifie point pck si c'est trop lourd on annule
+    
     }
     
   
 
     /*Afficher nom dechet */
     public void aff_listedechets() {
-    	for (Map.Entry mapentry  : listedechets.entrySet()) {
-    		System.out.println("Dechet : "+mapentry.getKey()+"\nQte : "+mapentry.getValue());
-    	}
+    	for (Dechet dechet : listedechets.keySet()) {
+            System.out.println("Nom : "+dechet.getNomDechet()+"\nQté : "+listedechets.get(dechet)+"\nPOIDS : "+dechet.getPoids());
+        }
     }
     
-    //Récupérer poids du déchet
+    //Récupérer poids des dechets et on le met a la poubelle
     public double calculerPoidsDepot() {
         double poidsTotal = 0;
-        for (Map.Entry mapentry  : listedechets.entrySet()) {
-           // poidsTotal += mapentry.getKey()* mapentry.getValue(); //CALCULER POIDS
+        for (Dechet dechet : listedechets.keySet()) {
+        	poidsTotal +=dechet.getPoids()*listedechets.get(dechet);
         }
         return poidsTotal;
     }
 
-    
-    //Parcourir la Hashmap comme au dessus et vérifier que le type de déchet correspond à  la poubelle, sinon enlever des points et vice versa
-    /*
-    	public boolean verifierNatureDechets() {
-        for (DetailsDepot d:ddepot) {
-            if (!poubelle.getTypePoubelle().equals(d.getDechet().getTypePoubelle())) {
-                return false;
-            }
-        }
-        return true;
-    }*/
-
-    
-    //Accéder au points du ménage
-     public void modifierPoints(int points,Menage menage) {
-        this.points += points;
-	  }
       
     public void garderInfosDepot() {
         // Méthode pour stocker les informations du dépôt dans une base de données ou un fichier

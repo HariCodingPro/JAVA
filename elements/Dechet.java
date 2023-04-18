@@ -2,19 +2,21 @@ package elements;
 
 
 public class Dechet {
-    private String typePoubelle; //Verre, carton etc.
+	
+	
+    private String typedechets; //Verre, carton etc.
     private double poids;
     private String nomDechet;
 
-    public Dechet(String typePoubelle, double poids, String nomDechet) {
-        this.typePoubelle = typePoubelle;
+    public Dechet(String  typedechets, double poids, String nomDechet) {
+        this.typedechets = typedechets;
         this.poids = poids;
         this.nomDechet = nomDechet;
     }
 
     
     public String getTypePoubelle() {
-        return typePoubelle;
+        return typedechets;
     }
 
     
@@ -28,8 +30,8 @@ public class Dechet {
     }
 
     
-    public void setTypePoubelle(String typePoubelle) {
-        this.typePoubelle = typePoubelle;
+    public void setTypePoubelle(String typedechets) {
+        this.typedechets = typedechets;
     }
 
     

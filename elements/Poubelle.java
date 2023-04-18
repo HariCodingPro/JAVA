@@ -4,30 +4,37 @@ import java.util.ArrayList;
 
 public class Poubelle {
 
-	public enum TypeDechet {
 
-        Verre, Plastique, Metal, Carton
-       
-	}
 
 	private int id;
-    private String centreTriProche;
-    private TypeDechet typedechets;
+    private CentreTri centreTriProche;
+    private String typedechets;
     private String emplacement;
-    private int qteMax; //en kg
+    private int qteMax; 
+    private double poidsActuel;
     private ArrayList<Depot> Pb_Depots=new ArrayList<Depot>();//Pour savoir ce qu'il y a dans la poubelle et qui  a mis quoi 
     
 				
-    public Poubelle(int id, String centreTriProche, TypeDechet typedechets, String emplacement, int qteMax) {
+    public Poubelle(int id, CentreTri centreTriProche, String typedechets, String emplacement,double poidsActuel, int qteMax) {
 		super();
 		this.id = id;
 		this.centreTriProche = centreTriProche;
 		this.typedechets = typedechets;
 		this.emplacement = emplacement;
 		this.qteMax = qteMax;
+		this.poidsActuel=poidsActuel;
 	}
 
-    	public int getId() {
+    	public double getPoidsActuel() {
+		return poidsActuel;
+	}
+
+    	public void setPoidsActuel(double poidsActuel) {
+		this.poidsActuel = poidsActuel;
+	}
+
+
+		public int getId() {
 		return id;
 	}
 
@@ -35,19 +42,19 @@ public class Poubelle {
 		this.id = id;
 	}
 
-	public String getCentreTriProche() {
+	public CentreTri getCentreTriProche() {
 		return centreTriProche;
 	}
 
-	public void setCentreTriProche(String centreTriProche) {
+	public void setCentreTriProche(CentreTri centreTriProche) {
 		this.centreTriProche = centreTriProche;
 	}
 
-	public TypeDechet getTypedechets() {
+	public String getTypedechets() {
 		return typedechets;
 	}
 
-	public void setTypedechets(TypeDechet typedechets) {
+	public void setTypedechets(String typedechets) {
 		this.typedechets = typedechets;
 	}
 
@@ -81,9 +88,9 @@ public class Poubelle {
 	        }
 	}
 
-    private void signalerCentreTri(TypeDechet typeDechet) {
+    private void signalerCentreTri(String typeDechet) {
     	//Vérifier si qté max atteinte
-        System.out.printf("Le centre de tri %s est informé que la poubelle %d a dépassé la quantité maximale pour le type de déchet %s.\n",centreTriProche, id, typeDechet.name());
+        System.out.printf("Le centre de tri %s est informé que la poubelle %d a dépassé la quantité maximale pour le type de déchet %s.\n",centreTriProche, id, typedechets);
     }
     
 }
