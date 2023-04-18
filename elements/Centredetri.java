@@ -8,11 +8,11 @@ public class CentreTri {
 	private String ville;
 	private int codePost;
 	private int nbPoubelles;
-	private int[] quantites;
-	private HashMap<String,int[]> quartiers = new HashMap<String,int[]>();
+	private int quantites[] = new int[4];
+	private ArrayList<poubelle> poubelles = new ArrayList<poubelle>();
 	
 
-	public CentreTri(int id, String nom, String adresse, String ville, int codePost, int nbPoubelles, int[] quantites, HashMap<String, int[]> quartiers) {
+	public CentreTri(int id, String nom, String adresse, String ville, int codePost, int nbPoubelles, int[] quantites, ArrayList<poubelle> poubelles) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -21,7 +21,7 @@ public class CentreTri {
 		this.codePost = codePost;
 		this.nbPoubelles = nbPoubelles;
 		this.quantites = quantites;
-		this.quartiers = quartiers;
+		this.poubelles = poubelles;
 	}
 
 	public int getId() {
@@ -80,32 +80,26 @@ public class CentreTri {
 		this.quantites = quantites;
 	}
 
-	public HashMap<String, int[]> getQuartiers() {
-		return quartiers;
+	public ArrayList<poubelle> getPoubelles() {
+		return poubelles;
 	}
 
-	public void setQuartiers(HashMap<String, int[]> quartiers) {
-		this.quartiers = quartiers;
+	public void setQuartiers(ArrayList<poubelle> poubelles) {
+		this.poubelles = poubelles;
 	}
 	
 
-	void ajouterPoubelles(String[] quartiers) {
-		int nvpb[] = {0,0,0,0};
-		for (String q:quartiers) {
-			this.quartiers.put(q,nvpb);
-		}
+	void ajouterPoubelles(poubelle nbPoubelles) {
+		
 	}
-	
 	void retirerPoubelles(String[] quartiers) {
 		for (String q:quartiers) {
 			this.quartiers.remove(q);
 		}
 	}
-	
 	void stats() {
 		
 	}
-	
 	void collecter() {
 		for (String q:quartiers.keySet()){
 			for (int i=0;i<4;i++) {
@@ -113,7 +107,6 @@ public class CentreTri {
 			}
 		}
 	}
-	
 	void vente() {
 		for (int i=0;i<4;i++) {
 			quantites[i] = 0;
