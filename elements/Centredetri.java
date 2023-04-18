@@ -9,10 +9,11 @@ public class CentreTri {
 	private int codePost;
 	private int nbPoubelles;
 	private int quantites[] = new int[4];
-	private ArrayList<poubelle> poubelles = new ArrayList<poubelle>();
+	private ArrayList<Poubelle> Poubelles = new ArrayList<Poubelle>();
+	private Scanner lect = new Scanner(System.in);
 	
 
-	public CentreTri(int id, String nom, String adresse, String ville, int codePost, int nbPoubelles, int[] quantites, ArrayList<poubelle> poubelles) {
+	public CentreTri(int id, String nom, String adresse, String ville, int codePost, int nbPoubelles, int[] quantites, ArrayList<Poubelle> Poubelles) {
 		super();
 		this.id = id;
 		this.nom = nom;
@@ -21,7 +22,7 @@ public class CentreTri {
 		this.codePost = codePost;
 		this.nbPoubelles = nbPoubelles;
 		this.quantites = quantites;
-		this.poubelles = poubelles;
+		this.Poubelles = Poubelles;
 	}
 
 	public int getId() {
@@ -80,36 +81,49 @@ public class CentreTri {
 		this.quantites = quantites;
 	}
 
-	public ArrayList<poubelle> getPoubelles() {
-		return poubelles;
+	public ArrayList<Poubelle> getPoubelles() {
+		return Poubelles;
 	}
 
-	public void setQuartiers(ArrayList<poubelle> poubelles) {
-		this.poubelles = poubelles;
+	public void setQuartiers(ArrayList<Poubelle> Poubelles) {
+		this.Poubelles = Poubelles;
+	}
+
+	
+	void ajouterPoubelles(Poubelle nbPoubelles) {
+		System.out.println("Veuillez rentrer le nom du centre de tri :");
+		String centreTri = lect.next();
+		Poubelles.get(Poubelles.size()).centreTriProche = centreTri;
+		System.out.println("Veuillez rentrer le type de déchets :");
+		String type = lect.next();
+		Poubelles.get(Poubelles.size()).typedechets = type;
+		System.out.println("Veuillez rentrer l'emplacement :");
+		String emplac = lect.next();
+		Poubelles.get(Poubelles.size()).emplacement = emplac;
+		System.out.println("Veuillez rentrer la quantité max :");
+		int qte = lect.nextInt();
+		Poubelles.get(Poubelles.size()).qteMax = qte;
 	}
 	
-
-	void ajouterPoubelles(poubelle nbPoubelles) {
+	void retirerPoubelles(String[] quartiers) {
 		
 	}
-	void retirerPoubelles(String[] quartiers) {
-		for (String q:quartiers) {
-			this.quartiers.remove(q);
-		}
-	}
+	
 	void stats() {
 		
 	}
+	
 	void collecter() {
-		for (String q:quartiers.keySet()){
-			for (int i=0;i<4;i++) {
-				quartiers.get(q)[i] = 0;
-			}
-		}
+		
 	}
+	
 	void vente() {
 		for (int i=0;i<4;i++) {
 			quantites[i] = 0;
 		}
+	}
+	
+	void afficher() {
+		
 	}
 }
