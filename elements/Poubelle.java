@@ -9,27 +9,33 @@ public class Poubelle {
 	private int id;
     private CentreTri centreTriProche;
     private String typedechets;
-    private String emplacement;
+    private String emplacement;//le quartier
+    private String ville;
     private int qteMax; 
     private double poidsActuel;
     private ArrayList<Depot> Pb_Depots=new ArrayList<Depot>();//Pour savoir ce qu'il y a dans la poubelle et qui  a mis quoi 
-    
+    //Rajouter code accès
 				
-    public Poubelle(int id, CentreTri centreTriProche, String typedechets, String emplacement,double poidsActuel, int qteMax) {
-		super();
-		this.id = id;
-		this.centreTriProche = centreTriProche;
-		this.typedechets = typedechets;
-		this.emplacement = emplacement;
-		this.qteMax = qteMax;
-		this.poidsActuel=poidsActuel;
-	}
+   
 
-    	public double getPoidsActuel() {
-		return poidsActuel;
-	}
+   
 
-    	public void setPoidsActuel(double poidsActuel) {
+    	public Poubelle(int id, CentreTri centreTriProche, String typedechets, String emplacement, String ville, int qteMax, double poidsActuel) {
+			super();
+			this.id = id;
+			this.centreTriProche = centreTriProche;
+			this.typedechets = typedechets;
+			this.emplacement = emplacement;
+			this.ville = ville;
+			this.qteMax = qteMax;
+			this.poidsActuel = poidsActuel;
+		}
+    	
+     	public double getPoidsActuel() {
+    		return poidsActuel;
+    	}
+
+		public void setPoidsActuel(double poidsActuel) {
 		this.poidsActuel = poidsActuel;
 	}
 

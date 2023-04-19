@@ -9,6 +9,7 @@ public class CentreTri {
 	private int codePost;
 	
 	private ArrayList<Poubelle> listePoubelles = new ArrayList<Poubelle>();
+	
 	private Scanner lect = new Scanner(System.in);
 
 	public CentreTri(int id, String nom, String adresse, String ville, int codePost) {
@@ -18,7 +19,6 @@ public class CentreTri {
 		this.adresse = adresse;
 		this.ville = ville;
 		this.codePost = codePost;
-		
 	}
 
 	public int getId() {
@@ -66,37 +66,37 @@ public class CentreTri {
 	}
 
 	
-
+	public Poubelle getPoubelle(int idx) {
+		return listePoubelles.get(idx);
+	}
 
 	
 	public void ajouterPoubelles() {
-		/*System.out.println("Veuillez rentrer le nom du centre de tri :");
-		String centreTri = lect.next();*/
-		//newPoubelle.setCentreTriProche(this);
-
-	//	Poubelles.get(Poubelles.size()).centreTriProche = centreTri;
+		
+		//Créer id
+		
 		System.out.println("Veuillez rentrer le type de déchets :");
 		String type = lect.next();
-		//newPoubelle.setTypedechets(type);
-		//Poubelles.get(Poubelles.size()).typedechets = type;
-		System.out.println("Veuillez rentrer l'emplacement :");
+
+		System.out.println("Veuillez rentrer le quartier :");
 		String emplac = lect.next();
-	//	newPoubelle.setTypedechets(emplac);
-	//	Poubelles.get(Poubelles.size()).emplacement = emplac;
+
 		System.out.println("Veuillez rentrer la quantité max :");
 		int qte = lect.nextInt();
-	//	newPoubelle.setQteMax(qte);
-	//	newPoubelle.setPoidsActuel(0);
-		//Poubelles.get(Poubelles.size()).qteMax = qte;
-		
-		Poubelle newPoub=new Poubelle(12, this,type, emplac, qte, 0);
+
+		Poubelle newPoub=new Poubelle(12, this,type, emplac,this.ville,  qte, 0);
 		listePoubelles.add(newPoub);
+	}
+	
+	public void ajouterPoubellesExistante(Poubelle p) {
+		listePoubelles.add(p);
 	}
 	
 	public void afficherPoubelles() {
 	
 		for(Poubelle d:listePoubelles) {
-			System.out.println(d.getTypedechets());
+			System.out.println(d.getId()+"/ "+d.getTypedechets()+" ("+d.getEmplacement()+")");
+
 		}
 	}
 	
