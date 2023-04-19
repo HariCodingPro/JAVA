@@ -33,7 +33,7 @@ public class Application {
 		
 		
 		
-		//Création d'un ménage
+		//Création d'un ménage lié à un compte
 		Compte=new Compte(12, "Gazou?", "password");
 		C1= new Menage(12, "Henri", "Durand", "12-10-2021", "15 rue lachette", Compte);
 		C2= new Menage(17, "Didier", "Bg", "12-08-2021", "15 rue lavend", Compte);
@@ -98,7 +98,7 @@ public class Application {
 			System.out.println("Vous avez choisi : "+Ct[valint].getPoubelle(valpb-1).getTypedechets()+" à "+Ct[valint].getPoubelle(valpb-1).getEmplacement());
 
 			
-			//FAIRE UN DEPOT
+			//FAIRE UN DEPOT, verifier poids, ajouter points etc.
 			
 			
 
