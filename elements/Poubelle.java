@@ -16,11 +16,8 @@ public class Poubelle {
     private ArrayList<Depot> Pb_Depots=new ArrayList<Depot>();//Pour savoir ce qu'il y a dans la poubelle et qui  a mis quoi 
     //Rajouter code accès
 				
-   
 
-   
-
-    	public Poubelle(int id, CentreTri centreTriProche, String typedechets, String emplacement, String ville, int qteMax, double poidsActuel) {
+    public Poubelle(int id, CentreTri centreTriProche, String typedechets, String emplacement, String ville, int qteMax, double poidsActuel) {
 			super();
 			this.id = id;
 			this.centreTriProche = centreTriProche;

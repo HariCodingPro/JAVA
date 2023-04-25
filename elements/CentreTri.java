@@ -74,17 +74,17 @@ public class CentreTri {
 	public void ajouterPoubelles() {
 		
 		//Créer id
-		
+		 Random rand = new Random(); 
 		System.out.println("Veuillez rentrer le type de déchets :");
-		String type = lect.next();
+		String type = lect.nextLine();
 
 		System.out.println("Veuillez rentrer le quartier :");
-		String emplac = lect.next();
+		String emplac = lect.nextLine();
 
 		System.out.println("Veuillez rentrer la quantité max :");
-		int qte = lect.nextInt();
+		int qte = Integer.parseInt(lect.nextLine());
 
-		Poubelle newPoub=new Poubelle(12, this,type, emplac,this.ville,  qte, 0);
+		Poubelle newPoub=new Poubelle(listePoubelles.size()+1, this,type.toLowerCase(), emplac,this.ville,  qte, 0);
 		listePoubelles.add(newPoub);
 	}
 	

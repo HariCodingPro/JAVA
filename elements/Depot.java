@@ -26,8 +26,9 @@ public class Depot {
     
     	listedechets.put(d,qte);
     	
-    	if(d.getTypePoubelle()==poubelle.getTypedechets()) {
+    	if(d.getTypePoubelle().equals(poubelle.getTypedechets())) {
     		points+=5;
+
     	}
     	
     	else {
